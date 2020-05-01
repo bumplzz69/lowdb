@@ -24,7 +24,9 @@
     "build": "npm run build:lib && npm run build:dist",
     "build:lib": "rimraf lib && babel src --out-dir lib && npm run mvAdapters",
     "build:dist": "rimraf dist && webpack && webpack -p",
-    "mvAdapters": "rimraf adapters && mv lib/adapters ."
+    "mvAdapters": "rimraf adapters && mv lib/adapters .",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -41,7 +43,8 @@
     "is-promise": "^2.1.0",
     "lodash": "^4.17.10",
     "pify": "^3.0.0",
-    "steno": "^0.4.1"
+    "steno": "^0.4.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-cli": "^6.2.0",
@@ -81,5 +84,6 @@
     "hooks": {
       "pre-commit": "npm test"
     }
-  }
+  },
+  "snyk": true
 }
